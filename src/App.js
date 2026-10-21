@@ -63,13 +63,6 @@ const skillIcons = {
   OOP: FaCode,
 };
 
-const skillGroupIcons = {
-  Languages: FaCode,
-  Frontend: FaLayerGroup,
-  Backend: FaNetworkWired,
-  'Data & tools': FaDatabase,
-  Foundations: FaProjectDiagram,
-};
 const skillIconColors = {
   Python: '#3776AB',
   JavaScript: '#D6B400',
@@ -127,7 +120,6 @@ function ProjectCard({ project }) {
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [flippedSkillGroups, setFlippedSkillGroups] = useState([]);
   const [darkMode, setDarkMode] = useState(() => {
     try {
       return window.localStorage.getItem('sujal-portfolio-theme') === 'dark';
@@ -190,21 +182,11 @@ function App() {
           <div className="skills-title"><p className="eyebrow">TOOLS I REACH FOR</p><h2>My toolkit<span>.</span></h2></div>
           <div className="skills-browser">
             <div className="skill-category-grid">
-              {skillGroups.map((group, index) => {
-                const isActive = flippedSkillGroups.includes(group.label);
-                const GroupIcon = skillGroupIcons[group.label];
-                return <button className={`skill-category-card${isActive ? ' active' : ''}`} type="button" key={group.label} aria-label={`${group.label}: ${isActive ? 'showing technologies' : 'show technologies'}`} aria-expanded={isActive} onClick={() => setFlippedSkillGroups((current) => isActive ? current.filter((label) => label !== group.label) : [...current, group.label])}>
-                  <span className="skill-card-inner">
-                    <span className="skill-card-face skill-card-front">
-                      <span className="skill-card-number">0{index + 1}</span><span className="skill-card-label">{group.label}</span><span className="skill-card-count">{group.items.length} technologies</span><span className="skill-card-icon"><GroupIcon aria-hidden="true" /></span><span className="skill-card-toggle" aria-hidden="true">↻</span>
-                    </span>
-                    <span className="skill-card-face skill-card-back">
-                      <span className="skill-card-back-title">{group.label}<span> · {group.items.length}</span></span>
-                      <span className="skill-card-tech-list">{group.items.map((item) => { const Icon = skillIcons[item] || FaCode; return <span className="skill-card-tech" key={item}><Icon aria-hidden="true" style={{ color: skillIconColors[item] }} />{item}</span>; })}</span>
-                      <span className="skill-card-hint">Click to flip back</span>
-                    </span>
-                  </span>
-                </button>;
+              {skillGroups.map((group) => {
+                return <article className="skill-category-card" key={group.label}>
+                  <div className="skill-card-heading"><h3 className="skill-card-label">{group.label}</h3><span className="skill-card-count">· {group.items.length}</span></div>
+                  <span className="skill-card-tech-list">{group.items.map((item) => { const Icon = skillIcons[item] || FaCode; return <span className="skill-card-tech" key={item}><Icon aria-hidden="true" style={{ color: skillIconColors[item] }} />{item}</span>; })}</span>
+                </article>;
               })}
             </div>
           </div>
