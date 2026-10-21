@@ -222,7 +222,7 @@ function App() {
           <div className="footer-connect">
             <span className="eyebrow">LET’S CONNECT</span>
             <div className="footer-socials">
-              <a href="https://www.linkedin.com/in/sujalrai/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><FaLinkedinIn aria-hidden="true" /><span>LinkedIn</span></a>
+              <a href="https://www.linkedin.com/in/sujal-rai-60599141b/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><FaLinkedinIn aria-hidden="true" /><span>LinkedIn</span></a>
               <a href="https://github.com/Sujalrai12" target="_blank" rel="noreferrer" aria-label="GitHub"><FaGithub aria-hidden="true" /><span>GitHub</span></a>
               <a href="mailto:raisujal205@gmail.com" aria-label="Email Sujal"><FaEnvelope aria-hidden="true" /><span>Email</span></a>
             </div>
