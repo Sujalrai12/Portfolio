@@ -25,7 +25,7 @@ const projects = [
     description:
       'An Airbnb-style application for discovering property listings, uploading images, signing in and managing booking workflows.',
     stack: ['EJS', 'Express', 'MongoDB', 'Node.js'],
-    live: 'https://travelnest-boye.onrender.com',
+    live: 'https://travelnest-3oye.onrender.com/',
     code: 'https://github.com/Sujalrai12/TravelNest',
     visual: 'travel',
   },
