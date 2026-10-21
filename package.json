@@ -51,5 +51,10 @@
   },
   "devDependencies": {
     "react-scripts": "^5.0.1"
+  },
+  "allowScripts": {
+    "core-js@3.22.0": true,
+    "core-js-pure@3.22.0": true,
+    "styled-components@5.3.5": true
   }
 }
