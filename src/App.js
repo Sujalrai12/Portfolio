@@ -5,6 +5,7 @@ import { SiCss3, SiExpress, SiGit, SiGithub, SiHtml5, SiJava, SiJavascript, SiMo
 import SujalPortrait from './images/dfgdgh.jpeg';
 import TravelNestPreview from './images/travelnest.png';
 import ExamNotesPreview from './images/Examnotes.png';
+import PotholePreview from './images/poth.png';
 
 const projects = [
   {
@@ -29,6 +30,17 @@ const projects = [
     code: 'https://github.com/Sujalrai12/TravelNest',
     visual: 'travel',
   },
+  {
+    number: '03',
+    name: 'Pothole Detection',
+    type: 'Computer vision · Road safety',
+    description:
+      'A road-safety project focused on identifying potholes in road scenes to make damaged roads easier to spot.',
+    stack: ['Node.js', 'Express.js', 'React.js', 'JavaScript'],
+    live: 'https://pothole1.onrender.com/',
+    code: 'https://github.com/Sujalrai12/Pothole',
+    visual: 'pothole',
+  },
 ];
 
 const skillGroups = [
@@ -45,12 +57,14 @@ const skillIcons = {
   'Core Java': SiJava,
   SQL: FaDatabase,
   React: SiReact,
+  'React.js': SiReact,
   HTML: SiHtml5,
   CSS: SiCss3,
   'Tailwind CSS': SiTailwindcss,
   EJS: FaCode,
   'Node.js': SiNodedotjs,
   'Express.js': SiExpress,
+  Express: SiExpress,
   'REST APIs': FaNetworkWired,
   MongoDB: SiMongodb,
   Git: SiGit,
@@ -92,8 +106,12 @@ function Arrow({ diagonal = false }) {
 }
 
 function ProjectVisual({ kind }) {
-  const image = kind === 'notes' ? ExamNotesPreview : TravelNestPreview;
-  const projectName = kind === 'notes' ? 'ExamNotes AI' : 'TravelNest';
+  const projectDetails = {
+    notes: { image: ExamNotesPreview, name: 'ExamNotes AI' },
+    travel: { image: TravelNestPreview, name: 'TravelNest' },
+    pothole: { image: PotholePreview, name: 'Pothole Detection' },
+  }[kind];
+  const { image, name: projectName } = projectDetails;
   return <div className={`preview preview-${kind}`}><img className="project-preview-image" src={image} alt={`${projectName} application preview`} /></div>;
 }
 
@@ -102,10 +120,10 @@ function ProjectCard({ project }) {
     <article className="project-card">
       <ProjectVisual kind={project.visual} />
       <div className="project-content">
-        <div className="project-meta"><span>{project.type}</span><span>{project.number} / 02</span></div>
+        <div className="project-meta"><span>{project.type}</span><span>{project.number} / 03</span></div>
         <h3>{project.name}</h3>
         <p>{project.description}</p>
-        <div className="tag-list">{project.stack.map((tag) => <span key={tag}>{tag}</span>)}</div>
+        <div className="tag-list">{project.stack.map((tag) => { const Icon = skillIcons[tag]; return <span key={tag}>{Icon && <Icon className="project-tag-icon" aria-hidden="true" style={{ color: skillIconColors[tag] }} />}{tag}</span>; })}</div>
         <div className="project-link-row">
           <div className="project-actions">
             {project.live && <a href={project.live} target="_blank" rel="noreferrer">Live app<Arrow diagonal /></a>}
@@ -173,9 +191,9 @@ function App() {
         </section>
 
         <section className="work-section section-wrap" id="work">
-          <div className="section-heading"><div><p className="eyebrow">A FEW THINGS I’VE MADE</p><h2>Selected work<span>.</span></h2></div><p>Two projects that bring together thoughtful interfaces, useful features and full-stack engineering.</p></div>
+          <div className="section-heading"><div><p className="eyebrow">A FEW THINGS I’VE MADE</p><h2>Selected work<span>.</span></h2></div><p>Projects that bring together thoughtful interfaces, useful features and engineering.</p></div>
           <div className="projects-grid">{projects.map((project) => <ProjectCard key={project.number} project={project} />)}</div>
-          <div className="work-footnote"><span>01 — 02</span><p>Built to solve real problems, with room to keep getting better.</p><span className="footnote-star">✳</span></div>
+          <div className="work-footnote"><span>01 — 03</span><p>Built to solve real problems, with room to keep getting better.</p><span className="footnote-star">✳</span></div>
         </section>
 
         <section className="skills-section section-wrap">
