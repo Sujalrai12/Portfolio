@@ -173,7 +173,7 @@ function App() {
             <h1><span className="hero-greeting">Hello, I’m</span><br /><span className="hero-name">Sujal Rai</span></h1>
             <h2 className="hero-role">Full-stack Developer</h2>
             <p className="hero-intro">I build web applications and practical AI tools that turn useful ideas into software people can use.</p>
-            <div className="hero-actions"><a className="resume-link" href="/sujal-rai-resume.pdf" target="_blank" rel="noreferrer">Resume <Arrow diagonal /></a></div>
+            <div className="hero-actions"><a className="resume-link" href={`${process.env.PUBLIC_URL}/Sujal_resume%20(4).pdf`} target="_blank" rel="noreferrer">Resume <Arrow diagonal /></a></div>
           </div>
           <div className="hero-art">
             <img className="hero-photo" src={SujalPortrait} alt="Sujal Rai standing outdoors" />
