@@ -140,9 +140,9 @@ function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(() => {
     try {
-      return window.localStorage.getItem('sujal-portfolio-theme') === 'dark';
+      return window.localStorage.getItem('sujal-portfolio-theme') !== 'light';
     } catch {
-      return false;
+      return true;
     }
   });
 
